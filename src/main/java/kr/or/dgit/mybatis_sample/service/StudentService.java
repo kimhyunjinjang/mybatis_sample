@@ -38,6 +38,12 @@ public class StudentService {
 			sqlSession.commit();
 		}
 		return res;
-		
+	}
+	
+	public int updateStudentWithAPI(Student student) {
+		log.debug("updateStudentWithAPI()");
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
+			
+		}
 	}
 }
