@@ -19,6 +19,17 @@ public class Student {
 		super();
 		this.studId = studId;
 	}
+	
+	
+
+	public Student(int studId, String name, String email, PhoneNumber phone, Date dob) {
+		super();
+		this.studId = studId;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.dob = dob;
+	}
 
 	@Override
 	public String toString() {

@@ -4,6 +4,7 @@ public class PhoneNumber {
 	private String countryCode;
 	private String stateCode;
 	private String number;
+	
 	public PhoneNumber() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -16,7 +17,8 @@ public class PhoneNumber {
 	}
 	@Override
 	public String toString() {
-		return "PhoneNumber [countryCode=" + countryCode + ", stateCode=" + stateCode + ", number=" + number + "]";
+		//return "PhoneNumber [countryCode=" + countryCode + ", stateCode=" + stateCode + ", number=" + number + "]";
+		return String.format("%s-%s-%s", countryCode, stateCode, number);
 	}
 	
 	public PhoneNumber(String str) {
@@ -24,8 +26,8 @@ public class PhoneNumber {
 			String[] parts = str.split("-");
 			
 			if(parts.length > 0) this.countryCode =parts[0];
-			if(parts.length > 1) this.countryCode =parts[1];
-			if(parts.length > 2) this.countryCode =parts[2];
+			if(parts.length > 1) this.stateCode =parts[1];
+			if(parts.length > 2) this.number =parts[2];
 		}
 	}
 }
