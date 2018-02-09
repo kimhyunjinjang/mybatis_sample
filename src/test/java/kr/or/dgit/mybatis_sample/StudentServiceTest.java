@@ -31,64 +31,20 @@ public class StudentServiceTest {
 		service = null;
 	}
 	
-	@Test
-	public void test1FindStudentByNo() {
-		/*Student student = new Student();
-		student.setStudId(1);
-		
-		Student selectStudent = studentService.findStudentByNo(student);
-		Assert.assertEquals(student.getStudId(), selectStudent.getStudId());*/
-		
-		Student student = service.findStudentByNo(new Student(1));
-		Assert.assertNotNull(student);
-	}
-	
-	@Test
-	public void test2FindStudentByAll() {
-		List<Student> listStd = service.findStudentByAll();
-		Assert.assertNotNull(listStd);
-		for(Student std : listStd) {
-			System.out.println(std);
-		}
-	}
-	
-	/*@Test
-	public void testFindStudent() {
-		Student student = new Student();
-		student.setStudId(1);
-		
-		Student selectStudent = service.findStudentByNo(student);
-		Assert.assertEquals(student.getStudId(), selectStudent.getStudId());
-	}
-	
-	@Test
-	public void testFindStudentByAll() {
-		List<Student> lists = service.findStudentByAll();
-	}*/
 	
 	@Test
 	public void test3FindStudentByNoWithAPI() {
-		Student student = service.findStudentByNo(new Student(1));
+		Student student = service.findStudentByNoWithAPI(new Student(1));
 		Assert.assertNotNull(student);
 	}
 	
 	@Test
 	public void test4FindStudentByAllWithAPI() {
-		List<Student> listStd = service.findStudentByAll();
+		List<Student> listStd = service.findStudentByAllWithAPI();
 		Assert.assertNotNull(listStd);
 		for(Student std : listStd) {
 			System.out.println(std);
 		}
-	}
-	
-	@Test
-	public void test5InsertStudent() {
-		Calendar newDate = GregorianCalendar.getInstance();
-		newDate.set(1990, 2, 28);
-		
-		Student student = new Student(3, "홍길동3", "lee@test.co.kr", new PhoneNumber("010-1234-1234"), newDate.getTime());
-		int res = service.insertStudent(student);
-		Assert.assertEquals(1, res);
 	}
 	
 	@Test
