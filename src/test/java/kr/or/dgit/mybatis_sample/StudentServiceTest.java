@@ -52,34 +52,6 @@ public class StudentServiceTest {
 		}
 	}
 	
-	/*@Test
-	public void testFindStudent() {
-		Student student = new Student();
-		student.setStudId(1);
-		
-		Student selectStudent = service.findStudentByNo(student);
-		Assert.assertEquals(student.getStudId(), selectStudent.getStudId());
-	}
-	
-	@Test
-	public void testFindStudentByAll() {
-		List<Student> lists = service.findStudentByAll();
-	}*/
-	
-	@Test
-	public void test3FindStudentByNoWithAPI() {
-		Student student = service.findStudentByNo(new Student(1));
-		Assert.assertNotNull(student);
-	}
-	
-	@Test
-	public void test4FindStudentByAllWithAPI() {
-		List<Student> listStd = service.findStudentByAll();
-		Assert.assertNotNull(listStd);
-		for(Student std : listStd) {
-			System.out.println(std);
-		}
-	}
 	
 	@Test
 	public void test5InsertStudent() {
@@ -91,13 +63,5 @@ public class StudentServiceTest {
 		Assert.assertEquals(1, res);
 	}
 	
-	@Test
-	public void test6InsertStudentAPI() {
-		Calendar newDate = GregorianCalendar.getInstance();
-		newDate.set(1990, 3, 28);
-		
-		Student student = new Student(4, "홍길동4", "hong@naver.com", new PhoneNumber("010-5678-5678"), newDate.getTime());
-		int res = service.insertStudentWithAPI(student);
-		Assert.assertEquals(1, res);
-	}
+	
 }

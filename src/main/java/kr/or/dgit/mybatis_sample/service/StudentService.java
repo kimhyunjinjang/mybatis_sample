@@ -31,40 +31,13 @@ public class StudentService {
 		}
 		
 	}
-	
-	public Student findStudentByNoWithAPI(Student student) {
-		log.debug("selectStudentByNoWithAPI()");
-		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession();){
-			return sqlSession.selectOne(namespace+"selectStudentByNoWithAPI", student);
-		}
 		
-	}
-	
-	public List<Student> findStudentByAllWithAPI() {
-		log.debug("selectStudentByAllWithAPI()");
-		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession();){
-			return sqlSession.selectList(namespace+"selectStudentByAllWithAPI");
-		}
-		
-	}
-	
 	public int insertStudent(Student student) {
 		log.debug("insertStudent()");
 		int res = -1;
 		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession();){
 			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
 			res = studentDao.insertStudent(student);
-			sqlSession.commit();
-		}
-		return res;
-		
-	}
-	
-	public int insertStudentWithAPI(Student student) {
-		log.debug("insertStudentWithAPI()");
-		int res = -1;
-		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession();){
-			res = sqlSession.insert(namespace+"insertStudentWithAPI", student);
 			sqlSession.commit();
 		}
 		return res;
