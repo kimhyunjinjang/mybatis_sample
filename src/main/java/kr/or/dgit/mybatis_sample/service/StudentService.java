@@ -29,7 +29,6 @@ public class StudentService {
 			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
 			return studentDao.selectStudentByAll();
 		}
-		
 	}
 		
 	public int insertStudent(Student student) {
@@ -42,5 +41,22 @@ public class StudentService {
 		}
 		return res;
 		
+	}
+	
+	public int updateStudent(Student student) {
+		log.debug("updateStudent()");
+		SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession();
+		try{
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			int res = studentDao.updateStudent(student);
+			sqlSession.commit();
+			return res;
+		}catch (Exception e) {
+			sqlSession.rollback();
+			e.printStackTrace();
+			throw new RuntimeException(e.getCause());
+		}finally {
+			sqlSession.close();
+		}
 	}
 }

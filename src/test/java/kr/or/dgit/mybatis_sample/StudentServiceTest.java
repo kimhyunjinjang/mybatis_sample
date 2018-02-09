@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class StudentServiceTest {
 	}
 	
 	
-	@Test
+/*	@Test
 	public void test5InsertStudent() {
 		Calendar newDate = GregorianCalendar.getInstance();
 		newDate.set(1990, 2, 28);
@@ -61,7 +62,18 @@ public class StudentServiceTest {
 		Student student = new Student(3, "홍길동3", "lee@test.co.kr", new PhoneNumber("010-1234-1234"), newDate.getTime());
 		int res = service.insertStudent(student);
 		Assert.assertEquals(1, res);
+	}*/
+	
+	@Test
+	public void testUpdateStudent() {
+		Student student = new Student();
+		student.setStudId(1);
+		student.setName("Timothy");
+		student.setEmail("timothyUpdate@test.co.kr");
+		student.setPhone(new PhoneNumber("987-654-3211"));
+		student.setDob(new Date());
+		
+		int result = service.updateStudent(student);
+		Assert.assertSame(1, result);
 	}
-	
-	
 }

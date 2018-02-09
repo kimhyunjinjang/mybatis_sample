@@ -31,4 +31,12 @@
 		<include refid="insertSql"/>
 	</insert>
 	
+	<!-- update -->
+	<sql id="updateSql">
+		update students set name=#{name}, email=#{email}, phone=#{phone},
+		dob=#{dob} where stud_id=#{studId}
+	</sql>
+	<update id="updateStudent" parameterType="Student">
+		<include refid="updateSql"/>
+	</update>
 </mapper>
