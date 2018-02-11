@@ -56,4 +56,9 @@ public class StudentServiceTest {
 		int res = service.insertStudentWithAPI(student);
 		Assert.assertEquals(1, res);
 	}
+	
+	@Test
+	public void testupdateStudentAPI() {
+		
+	}
 }

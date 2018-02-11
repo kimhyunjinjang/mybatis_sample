@@ -42,8 +42,11 @@ public class StudentService {
 	
 	public int updateStudentWithAPI(Student student) {
 		log.debug("updateStudentWithAPI()");
-		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession();) {
-			
+		int res = -1;
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession();){
+			res = sqlSession.update(namespace+"updateStudentWithAPI", student);
+			sqlSession.commit();
 		}
+		return res;
 	}
 }
